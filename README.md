@@ -22,7 +22,7 @@ The application can be accessed on 127.0.0.1:5000 using your preferred REST clie
 
 ### Endpoints
 
-####/login
+#### /login
 GET: Given a username header and a password header, gives back JWT with user roles. This JWT should be passed into all other
 requests as an Authentication: Bearer {JWT} header. Returns a status code of 401 if the user isn't in the system. Check out
 initUsers.sql to see what users are already in the system. There are a few Managers, a few non-HR employees, an HR employee,
@@ -30,7 +30,7 @@ and an admin user. Note that the JWT expires, and if it expires, you will trigge
 it. I tried to catch this error but the way that Flask wraps its endpoints makes that difficult, so unfortunately it doesn't
 return 401. 
 
-####/users 
+#### /users 
 GET: Gets all users visible to the provided user. If user type is admin, this is every user. If user type is manager, it's all
 users with this user as their manager. If user is in the HR department, it's all non-HR users. For all other cases,
 it's just the provided user.
@@ -50,12 +50,12 @@ vacation_history: "vacaion_history"
 } 
 ````
 
-####/user/{username}
+#### /user/{username}
 PUT: Updates the given user, if the user accessing this endpoint has permission. Can include any fields above 
 (username, salary, etc.) in the request body, any field provided will be updated in the database. If salary is updated, a new
 salary history is automatically created in the salary history table.
 
-####salaries/{username}
+#### salaries/{username}
 GET: Returns all salary history for the given username if the user accessing has permission to view it.
 
 
